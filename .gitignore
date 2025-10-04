@@ -35,9 +35,9 @@ ENV/
 # Jupyter Notebook
 .ipynb_checkpoints
 
-# Large model files (optional - you might want to include these)
-# *.h5
-# *.pkl
+# Large model files (too big for GitHub)
+*.h5
+*.pkl
 
 # TensorBoard logs
 logs/
