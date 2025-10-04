@@ -184,29 +184,8 @@ Two approaches are implemented:
 - **Scalability**: Handles thousands of images
 - **Robustness**: Works with various lighting conditions
 
-## 🎯 Interview Talking Points
 
-### Technical Decisions
 
-**Q: "Why did you choose 224x224 input size?"**
-**A:** "224x224 is the standard input size for pre-trained models like ResNet and VGG. This allows us to leverage transfer learning from ImageNet weights, which significantly improves performance with limited data. It also balances detail preservation with computational efficiency."
-
-**Q: "How do you handle different lighting conditions?"**
-**A:** "I use data augmentation techniques including brightness/contrast adjustments and normalization. The model learns to be robust to lighting variations through training on augmented data. For production, we could also implement adaptive histogram equalization."
-
-**Q: "What's the difference between your custom CNN and transfer learning approach?"**
-**A:** "The custom CNN is designed specifically for defect detection with smaller filters to capture fine details. Transfer learning leverages pre-trained ResNet50 features, which are more general but require less data. I typically use transfer learning for better performance."
-
-**Q: "How do you ensure 85%+ accuracy?"**
-**A:** "Multiple strategies: 1) Transfer learning from ImageNet weights, 2) Comprehensive data augmentation, 3) Proper train/val/test splits, 4) Early stopping to prevent overfitting, 5) Learning rate scheduling, and 6) Model ensemble techniques."
-
-### Production Considerations
-
-**Q: "How would you deploy this in a manufacturing environment?"**
-**A:** "I'd implement it as a REST API using Flask/FastAPI, with Docker containers for easy deployment. The system can run on edge devices for real-time processing or in the cloud for batch processing. I'd also add monitoring for model drift and retraining pipelines."
-
-**Q: "What about handling new types of defects?"**
-**A:** "The system is designed for extensibility. For new defect types, I'd implement active learning to identify uncertain predictions, retrain with new data, and use techniques like few-shot learning for rapid adaptation to new defect patterns."
 
 ## 🔍 Code Examples
 
